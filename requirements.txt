@@ -1,0 +1,18 @@
+# Full development environment — pinned for reproducibility.
+# Install torch/torchvision from the CPU wheel index:
+#   pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.13.0
+torchvision==0.28.0
+mlflow==3.15.1
+dvc==3.67.1
+fastapi==0.141.1
+uvicorn[standard]==0.52.3
+pillow==12.3.0
+python-multipart==0.0.32
+prometheus-client==0.26.0
+scikit-learn==1.9.0
+matplotlib==3.11.1
+numpy==2.5.2
+PyYAML==6.0.3
+pytest==9.1.1
+httpx==0.28.1

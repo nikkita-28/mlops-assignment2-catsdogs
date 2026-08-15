@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Data (tracked by DVC, not Git)
+data/raw/
+data/processed/
+
+# MLflow local tracking store
+mlruns/
+
+# Generated training plots (also logged to MLflow as run artifacts)
+reports/
+
+# models/model.pt is intentionally committed — the CI Docker build bakes it into
+# the inference image. Per-experiment checkpoints stay local.
+models/model_*.pt
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Test / build junk
+.pytest_cache/
+*.log
+htmlcov/
+.coverage
+
+# Submission artifacts
+*.zip
+
+# MLflow tracking DB (local only)
+mlflow.db
+
+# Local working notes
+DEMO_SCRIPT.md
