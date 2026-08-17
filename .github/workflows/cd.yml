@@ -1,0 +1,42 @@
+name: CD
+
+# Deploys to the laptop (self-hosted runner) after CI succeeds on main.
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch: # allows manual redeploys from the Actions tab
+
+jobs:
+  deploy:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: self-hosted
+    # The Docker CLI writes progress output to stderr, which PowerShell surfaces
+    # as a terminating error, so every step runs through cmd.
+    defaults:
+      run:
+        shell: cmd
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Verify Docker is available
+        run: docker version
+
+      - name: Pull latest image from Docker Hub
+        run: docker compose pull
+
+      - name: Deploy with Docker Compose
+        run: docker compose up -d --remove-orphans
+
+      - name: Show running services
+        run: docker compose ps
+
+      - name: Run smoke tests (health + prediction)
+        run: python scripts/smoke_test.py --base-url http://localhost:8000
+
+      - name: Report deployment failure details
+        if: failure()
+        continue-on-error: true
+        run: docker compose logs --tail 50
