@@ -1,0 +1,9 @@
+# Inference-service dependencies only (used by the Dockerfile and CI) — pinned.
+torch==2.13.0
+torchvision==0.28.0
+fastapi==0.141.1
+uvicorn[standard]==0.52.3
+pillow==12.3.0
+python-multipart==0.0.32
+prometheus-client==0.26.0
+numpy==2.5.2

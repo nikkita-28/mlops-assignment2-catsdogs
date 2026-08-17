@@ -1,0 +1,18 @@
+# Pin the project name so the deployment is identified the same way regardless of
+# which directory Compose runs from: the CD runner's checkout and a local clone
+# manage the same containers.
+name: catsdogs
+
+services:
+  catsdogs-api:
+    image: ${DOCKERHUB_USERNAME:-nikkitas}/catsdogs-api:latest
+    container_name: catsdogs-api
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=4)"]
+      interval: 30s
+      timeout: 5s
+      start_period: 15s
+      retries: 3
