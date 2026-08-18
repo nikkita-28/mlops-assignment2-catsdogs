@@ -1,0 +1,93 @@
+﻿# HELP python_gc_objects_collected_total Objects collected during gc
+# TYPE python_gc_objects_collected_total counter
+python_gc_objects_collected_total{generation="0"} 9127.0
+python_gc_objects_collected_total{generation="1"} 826.0
+python_gc_objects_collected_total{generation="2"} 114.0
+# HELP python_gc_objects_uncollectable_total Uncollectable objects found during GC
+# TYPE python_gc_objects_uncollectable_total counter
+python_gc_objects_uncollectable_total{generation="0"} 0.0
+python_gc_objects_uncollectable_total{generation="1"} 0.0
+python_gc_objects_uncollectable_total{generation="2"} 0.0
+# HELP python_gc_collections_total Number of times this generation was collected
+# TYPE python_gc_collections_total counter
+python_gc_collections_total{generation="0"} 244.0
+python_gc_collections_total{generation="1"} 22.0
+python_gc_collections_total{generation="2"} 2.0
+# HELP python_info Python platform information
+# TYPE python_info gauge
+python_info{implementation="CPython",major="3",minor="13",patchlevel="15",version="3.13.15"} 1.0
+# HELP process_virtual_memory_bytes Virtual memory size in bytes.
+# TYPE process_virtual_memory_bytes gauge
+process_virtual_memory_bytes 1.501597696e+09
+# HELP process_resident_memory_bytes Resident memory size in bytes.
+# TYPE process_resident_memory_bytes gauge
+process_resident_memory_bytes 4.16722944e+08
+# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1.78707552422e+09
+# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
+# TYPE process_cpu_seconds_total counter
+process_cpu_seconds_total 27.88
+# HELP process_open_fds Number of open file descriptors.
+# TYPE process_open_fds gauge
+process_open_fds 15.0
+# HELP process_max_fds Maximum number of open file descriptors.
+# TYPE process_max_fds gauge
+process_max_fds 1.048576e+06
+# HELP inference_requests_total Total HTTP requests
+# TYPE inference_requests_total counter
+inference_requests_total{method="GET",path="/health",status="200"} 6.0
+inference_requests_total{method="POST",path="/predict",status="200"} 32.0
+# HELP inference_requests_created Total HTTP requests
+# TYPE inference_requests_created gauge
+inference_requests_created{method="GET",path="/health",status="200"} 1.7870755420121412e+09
+inference_requests_created{method="POST",path="/predict",status="200"} 1.7870755439814522e+09
+# HELP inference_request_latency_seconds Request latency in seconds
+# TYPE inference_request_latency_seconds histogram
+inference_request_latency_seconds_bucket{le="0.005",path="/health"} 6.0
+inference_request_latency_seconds_bucket{le="0.01",path="/health"} 6.0
+inference_request_latency_seconds_bucket{le="0.025",path="/health"} 6.0
+inference_request_latency_seconds_bucket{le="0.05",path="/health"} 6.0
+inference_request_latency_seconds_bucket{le="0.075",path="/health"} 6.0
+inference_request_latency_seconds_bucket{le="0.1",path="/health"} 6.0
+inference_request_latency_seconds_bucket{le="0.25",path="/health"} 6.0
+inference_request_latency_seconds_bucket{le="0.5",path="/health"} 6.0
+inference_request_latency_seconds_bucket{le="0.75",path="/health"} 6.0
+inference_request_latency_seconds_bucket{le="1.0",path="/health"} 6.0
+inference_request_latency_seconds_bucket{le="2.5",path="/health"} 6.0
+inference_request_latency_seconds_bucket{le="5.0",path="/health"} 6.0
+inference_request_latency_seconds_bucket{le="7.5",path="/health"} 6.0
+inference_request_latency_seconds_bucket{le="10.0",path="/health"} 6.0
+inference_request_latency_seconds_bucket{le="+Inf",path="/health"} 6.0
+inference_request_latency_seconds_count{path="/health"} 6.0
+inference_request_latency_seconds_sum{path="/health"} 0.008675561000018206
+inference_request_latency_seconds_bucket{le="0.005",path="/predict"} 0.0
+inference_request_latency_seconds_bucket{le="0.01",path="/predict"} 0.0
+inference_request_latency_seconds_bucket{le="0.025",path="/predict"} 0.0
+inference_request_latency_seconds_bucket{le="0.05",path="/predict"} 0.0
+inference_request_latency_seconds_bucket{le="0.075",path="/predict"} 20.0
+inference_request_latency_seconds_bucket{le="0.1",path="/predict"} 29.0
+inference_request_latency_seconds_bucket{le="0.25",path="/predict"} 31.0
+inference_request_latency_seconds_bucket{le="0.5",path="/predict"} 31.0
+inference_request_latency_seconds_bucket{le="0.75",path="/predict"} 32.0
+inference_request_latency_seconds_bucket{le="1.0",path="/predict"} 32.0
+inference_request_latency_seconds_bucket{le="2.5",path="/predict"} 32.0
+inference_request_latency_seconds_bucket{le="5.0",path="/predict"} 32.0
+inference_request_latency_seconds_bucket{le="7.5",path="/predict"} 32.0
+inference_request_latency_seconds_bucket{le="10.0",path="/predict"} 32.0
+inference_request_latency_seconds_bucket{le="+Inf",path="/predict"} 32.0
+inference_request_latency_seconds_count{path="/predict"} 32.0
+inference_request_latency_seconds_sum{path="/predict"} 2.8839813790000335
+# HELP inference_request_latency_seconds_created Request latency in seconds
+# TYPE inference_request_latency_seconds_created gauge
+inference_request_latency_seconds_created{path="/health"} 1.7870755420122023e+09
+inference_request_latency_seconds_created{path="/predict"} 1.787075543981485e+09
+# HELP predictions_total Predictions served, by predicted label
+# TYPE predictions_total counter
+predictions_total{label="cat"} 17.0
+predictions_total{label="dog"} 15.0
+# HELP predictions_created Predictions served, by predicted label
+# TYPE predictions_created gauge
+predictions_created{label="cat"} 1.787075543980492e+09
+predictions_created{label="dog"} 1.7870756084363067e+09
+
