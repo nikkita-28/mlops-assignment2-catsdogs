@@ -56,7 +56,7 @@ async def lifespan(app: FastAPI):
     state["model"] = None
 
 
-app = FastAPI(title="Cats vs Dogs Inference API", version="1.0.0", lifespan=lifespan)
+app = FastAPI(title="Cats vs Dogs Inference API", version="1.1.0", lifespan=lifespan)
 
 
 @app.middleware("http")
